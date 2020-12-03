@@ -1,25 +1,35 @@
 package org.example;
-import java.util.List;
 
 public class MusicPlayer {
 
-    private List<Music> music;
+    private Music music;
     private String name;
     private int volume;
 
-    public MusicPlayer(List<Music> music){
-        this.music = music;
+    private MusicPlayer(){
+    }
+
+    public void initMethod(){
+        System.out.println("Init Method");
+    }
+
+    public void destroyMethod(){
+        System.out.println("Destroy Method");
+    }
+
+    public static MusicPlayer factoryMethod(){
+        return new MusicPlayer();
     }
 
     public void playMusic(){
-        music.forEach((x)->System.out.println("Play " + x.getSong() + " music"));
+        System.out.println("Play " + music.getSong() + " music");
     }
 
-    public List<Music> getMusic() {
+    public Music getMusic() {
         return music;
     }
 
-    public void setMusic(List<Music> music) {
+    public void setMusic(Music music) {
         this.music = music;
     }
 

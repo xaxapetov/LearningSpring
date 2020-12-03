@@ -21,15 +21,13 @@
     </bean>
 
     <bean id="testPlayer"
-          class="org.example.MusicPlayer">
-                <constructor-arg>
-                    <list>
-                        <ref bean="classicalMusic"/>
-                        <ref bean="popMusic"/>
-                        <ref bean="rockMusic"/>
-                    </list>
-                </constructor-arg>
+          class="org.example.MusicPlayer"
+          init-method="initMethod"
+          destroy-method="destroyMethod"
+          factory-method="factoryMethod"
+    scope="prototype">
 
+        <property name="music" ref="rockMusic"/>
         <property name="name" value="${musicPlayer.name}"/>
         <property name="volume" value="${musicPlayer.volume}"/>
     </bean>
